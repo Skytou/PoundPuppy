@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Runtime.InteropServices;
 
@@ -8,7 +9,18 @@ using System.Runtime.InteropServices;
 
 public class NativeShare : MonoBehaviour 
 {
+
+	public NativeShare instance = null;
+
 	public string ScreenshotName = "screenshot.png";
+
+
+
+
+	void Awake()
+	{
+		instance = this;
+	}
 
     public void ShareScreenshotWithText(string text)
     {
@@ -17,6 +29,9 @@ public class NativeShare : MonoBehaviour
 
         Share(text,screenShotPath,"");
     }
+
+
+	 
 
 	public void Share(string shareText, string imagePath, string url, string subject = "")
 	{
