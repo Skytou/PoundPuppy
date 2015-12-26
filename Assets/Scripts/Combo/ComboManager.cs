@@ -18,7 +18,7 @@ public class ComboManager : MonoBehaviour
     public GameObject initialPlat3;
     public Transform cameraStartPos;
     public Canvas canvas;
-    public float distance;
+   public static float distance;
     float prevTime;
 
     bool listenForStart;
