@@ -16,6 +16,7 @@ public class DogRunner : MonoBehaviour
     public float runSpeed;
     public static int Life;
     public Vector3 runDirection;
+    public GameObject BtnVideo;
 
     public bool updateAnim;
     Vector3 startPos;
@@ -52,6 +53,7 @@ public class DogRunner : MonoBehaviour
 
     void Start()
     {
+        BtnVideo.SetActive(false);
         ComboManager.StartGame += StartGame;
         gameOver = true;
         startPos = transform.position;
@@ -95,6 +97,10 @@ public class DogRunner : MonoBehaviour
 
             dogVelocity = 1;
             SyncAnim();
+            if(Life==5)
+            {
+                BtnVideo.SetActive(true);
+            }
         }
 
 
@@ -202,6 +208,7 @@ public class DogRunner : MonoBehaviour
             GameOver();
             Life += 1;
             Debug.Log(Life);
+            
           
         }
     }

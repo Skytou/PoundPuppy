@@ -31,6 +31,8 @@ public class ComboManager : MonoBehaviour
     public Text instructText;
     public Text gameOverText;
     public GameObject gameOverPanel;
+    public Text ScoreDisp;
+    public Text ComboDisp;
     
 
 
@@ -131,6 +133,7 @@ public class ComboManager : MonoBehaviour
     // Game Reset
     void OnReset()
     {
+        
         DogRunner.instRef.GameOver();
         gameOverPanel.SetActive(false);
         gameRunning = false;
@@ -141,7 +144,9 @@ public class ComboManager : MonoBehaviour
         instructText.text ="0";
         ScoreSystem.score = 0;
         ScoreSystem.comboCount = 0;
-        
+        ScoreDisp.text = "Score: " + ScoreSystem.score + " Pts.";
+        ComboDisp.text = "" + ScoreSystem.comboCount + "X";
+
 
         SpawnTrigger.twoBeforePrevPlat = 1;
         SpawnTrigger.beforePrevPlat = 1;
@@ -160,10 +165,11 @@ public class ComboManager : MonoBehaviour
         
     }
 
-    void OnResetBonus()
+    public void OnResetBonus()
     {
         if (DogRunner.Life == 5)
         {
+            
             DogRunner.instRef.GameOver();
             gameOverPanel.SetActive(false);
             gameRunning = false;
@@ -184,6 +190,7 @@ public class ComboManager : MonoBehaviour
             initialPlat3.SetActive(true);
 
             OnGameResume();
+            Debug.Log("SteveKratos");
 
         }
         // Application.LoadLevel(Application.loadedLevel);
