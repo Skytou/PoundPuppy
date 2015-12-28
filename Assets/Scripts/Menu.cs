@@ -4,10 +4,11 @@ using System.Collections;
 public class Menu : MonoBehaviour
 {
 
-	
+    public GameObject PanelMenu;
 	void Start ()
     {
         Time.timeScale = 1f;
+        PanelMenu.SetActive(true);
 
 	}
 	
@@ -19,11 +20,11 @@ public class Menu : MonoBehaviour
 
     public void LetsPlay()
     {
-        Application.LoadLevel("Combo");
+        PanelMenu.SetActive(false);
     }
 
-    public void MainMenu()
+    public void ShowMenu()
     {
-        Application.LoadLevel("MainMenu");
+        PanelMenu.SetActive(true);
     }
 }

@@ -14,6 +14,7 @@ public class DogRunner : MonoBehaviour
 
     public bool runStart;
     public float runSpeed;
+    public static int Life;
     public Vector3 runDirection;
 
     public bool updateAnim;
@@ -199,6 +200,9 @@ public class DogRunner : MonoBehaviour
         else if (hit.gameObject.CompareTag("LoseLine"))
         {
             GameOver();
+            Life += 1;
+            Debug.Log(Life);
+          
         }
     }
 }

@@ -18,8 +18,8 @@ public class ComboManager : MonoBehaviour
     public GameObject initialPlat3;
     public Transform cameraStartPos;
     public Canvas canvas;
-   public static float distance;
-    float prevTime;
+    public static float distance;
+     float prevTime;
 
     bool listenForStart;
     public bool gameRunning;
@@ -31,6 +31,7 @@ public class ComboManager : MonoBehaviour
     public Text instructText;
     public Text gameOverText;
     public GameObject gameOverPanel;
+    
 
 
     // Event Dispatcher
@@ -47,6 +48,7 @@ public class ComboManager : MonoBehaviour
     void Start()
     {
         listenForStart = true;
+        
         //TouchManager.PatternRecognized += HandleSwipeDetection;
         EventMgr.GameRestart += OnReset;
         EventMgr.GamePause += OnGamePause;
@@ -149,8 +151,10 @@ public class ComboManager : MonoBehaviour
         //initialPlat3.SetActive(true);
 
         //OnGameResume();
+        
 
         Application.LoadLevel(Application.loadedLevel);
+        
     }
 
     // game pause

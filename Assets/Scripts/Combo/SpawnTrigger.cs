@@ -60,10 +60,10 @@ public class SpawnTrigger : MonoBehaviour
                 //Debug.LogError(Time.time - timer);
                 timer = Time.time;
 
-               /* if (prevPlat !=1 || beforePrevPlat == 2 || beforePrevPlat == 3 || twoBeforePrevPlat == 3 )
+                if (prevPlat !=1 || beforePrevPlat == 2 || beforePrevPlat == 3 || twoBeforePrevPlat == 3 )
                 {
                     randNo = 1;
-                }*/
+                }
                 instance = Pooler.InstRef.GetPooledObject(randNo);
                 instance.transform.position = transform.position - new Vector3(0f, 0f, 2 * distBtnPlatforms[beforePrevPlat == 2 ? 2 : prevPlat]);
                 instance.SetActive(true);
