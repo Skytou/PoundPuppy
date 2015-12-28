@@ -20,7 +20,7 @@ public class ScoreSystem : MonoBehaviour
     public Text comboDisp;
 
     public static int score;
-    int comboCount;
+    public static int comboCount;
 
     public void Awake()
     {

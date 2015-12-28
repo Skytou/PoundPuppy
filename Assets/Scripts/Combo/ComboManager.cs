@@ -131,30 +131,63 @@ public class ComboManager : MonoBehaviour
     // Game Reset
     void OnReset()
     {
-        //DogRunner.instRef.GameOver();
-        //gameOverPanel.SetActive(false);
-        //gameRunning = false;
-        //listenForStart = true;
-        //Pooler.InstRef.HideAll();        
-
-        //distance = 0;
-        //instructText.text ="0";
+        DogRunner.instRef.GameOver();
+        gameOverPanel.SetActive(false);
+        gameRunning = false;
+        listenForStart = true;
+        Pooler.InstRef.HideAll();        
+        
+        distance = 0;
+        instructText.text ="0";
+        ScoreSystem.score = 0;
+        ScoreSystem.comboCount = 0;
+        
 
         SpawnTrigger.twoBeforePrevPlat = 1;
         SpawnTrigger.beforePrevPlat = 1;
         SpawnTrigger.prevPlat = 1;
-        //DogRunner.instRef.ResetPos();
-        //Camera.main.transform.parent.transform.position = cameraStartPos.position;
+        DogRunner.instRef.ResetPos();
+        Camera.main.transform.parent.transform.position = cameraStartPos.position;
 
-        //initialPlat1.SetActive(true);
-        //initialPlat2.SetActive(true);
-        //initialPlat3.SetActive(true);
+        initialPlat1.SetActive(true);
+        initialPlat2.SetActive(true);
+        initialPlat3.SetActive(true);
 
-        //OnGameResume();
+        OnGameResume();
         
 
-        Application.LoadLevel(Application.loadedLevel);
+       // Application.LoadLevel(Application.loadedLevel);
         
+    }
+
+    void OnResetBonus()
+    {
+        if (DogRunner.Life == 5)
+        {
+            DogRunner.instRef.GameOver();
+            gameOverPanel.SetActive(false);
+            gameRunning = false;
+            listenForStart = true;
+            Pooler.InstRef.HideAll();
+
+
+
+
+            SpawnTrigger.twoBeforePrevPlat = 1;
+            SpawnTrigger.beforePrevPlat = 1;
+            SpawnTrigger.prevPlat = 1;
+            DogRunner.instRef.ResetPos();
+            Camera.main.transform.parent.transform.position = cameraStartPos.position;
+
+            initialPlat1.SetActive(true);
+            initialPlat2.SetActive(true);
+            initialPlat3.SetActive(true);
+
+            OnGameResume();
+
+        }
+        // Application.LoadLevel(Application.loadedLevel);
+
     }
 
     // game pause
