@@ -165,36 +165,42 @@ public class ComboManager : MonoBehaviour
         
     }
 
+	public void ResetValueAfterContinueAD()
+	{
+		if (DogRunner.Life == 5)
+		{
+
+			DogRunner.instRef.GameOver();
+			gameOverPanel.SetActive(false);
+			gameRunning = false;
+			listenForStart = true;
+			Pooler.InstRef.HideAll();
+
+
+
+
+			SpawnTrigger.twoBeforePrevPlat = 1;
+			SpawnTrigger.beforePrevPlat = 1;
+			SpawnTrigger.prevPlat = 1;
+			DogRunner.instRef.ResetPos();
+			Camera.main.transform.parent.transform.position = cameraStartPos.position;
+
+			initialPlat1.SetActive(true);
+			initialPlat2.SetActive(true);
+			initialPlat3.SetActive(true);
+
+			OnGameResume();
+			Debug.Log("SteveKratos");
+
+		}
+	}
+
     public void OnResetBonus()
     {
-        if (DogRunner.Life == 5)
-        {
-            
-            DogRunner.instRef.GameOver();
-            gameOverPanel.SetActive(false);
-            gameRunning = false;
-            listenForStart = true;
-            Pooler.InstRef.HideAll();
-
-
-
-
-            SpawnTrigger.twoBeforePrevPlat = 1;
-            SpawnTrigger.beforePrevPlat = 1;
-            SpawnTrigger.prevPlat = 1;
-            DogRunner.instRef.ResetPos();
-            Camera.main.transform.parent.transform.position = cameraStartPos.position;
-
-            initialPlat1.SetActive(true);
-            initialPlat2.SetActive(true);
-            initialPlat3.SetActive(true);
-
-            OnGameResume();
-            Debug.Log("SteveKratos");
-
-        }
+       
+		Debug.Log("Showing Video AD");
         // Application.LoadLevel(Application.loadedLevel);
-
+		UnityADManager.instance.ShowRewardedAd();
     }
 
     // game pause

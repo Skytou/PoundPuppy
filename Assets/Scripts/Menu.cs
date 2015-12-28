@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Analytics;
 using System.Collections;
 
 public class Menu : MonoBehaviour
@@ -10,16 +11,15 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1f;
         PanelMenu.SetActive(true);
 
-	}
-	
-	
-	void Update ()
-    {
-	
-	}
 
+
+	}
+	
+	
+	 
     public void LetsPlay()
     {
+		UnityADManager.instance.ShowAd();
         PanelMenu.SetActive(false);
     }
 
@@ -27,4 +27,14 @@ public class Menu : MonoBehaviour
     {
         PanelMenu.SetActive(true);
     }
+
+	public void ShowLeaderBoard()
+	{
+		GooglePlayServiceManager.instance.ShowLeaderBoard();
+	}
+
+	public void ShowAchievements()
+	{
+		GooglePlayServiceManager.instance.ShowAchievements();
+	}
 }

@@ -5,13 +5,21 @@ using UnityEngine.Advertisements;
 public class UnityADManager : MonoBehaviour {
 
 
-	public UnityADManager instance;
+	public static UnityADManager instance;
 
 
 
 	void Awake()
 	{
 		instance = this;
+		if (Advertisement.isSupported) 
+		{
+			Advertisement.Initialize ("1024877");
+		} 
+		else 
+		{
+			Debug.Log("Platform not supported");
+		}
 	}
 
 	// Use this for initialization
@@ -46,6 +54,7 @@ public class UnityADManager : MonoBehaviour {
 			//
 			// YOUR CODE TO REWARD THE GAMER
 			// Give coins etc.
+			ComboManager.instRef.ResetValueAfterContinueAD();
 			break;
 		case ShowResult.Skipped:
 			Debug.Log("The ad was skipped before reaching the end.");
