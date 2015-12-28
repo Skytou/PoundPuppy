@@ -18,7 +18,7 @@ public class DogRunner : MonoBehaviour
     public Vector3 runDirection;
     public GameObject BtnVideo;
 
-    public bool updateAnim;
+    public static bool updateAnim;
     Vector3 startPos;
     float dogVelocity;
     bool jump;
@@ -124,7 +124,7 @@ public class DogRunner : MonoBehaviour
     }
 
     // Sync Animation
-    void SyncAnim()
+   public  void SyncAnim()
     {
         if (updateAnim)
         {

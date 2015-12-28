@@ -135,7 +135,7 @@ public class ComboManager : MonoBehaviour
     // Game Reset
     void OnReset()
     {
-        
+        DogRunner.updateAnim = true;
         DogRunner.instRef.GameOver();
         gameOverPanel.SetActive(false);
         gameRunning = false;
