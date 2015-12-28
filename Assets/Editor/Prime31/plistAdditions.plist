@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>plistKeys</key>
+    <array>
+      <string>MinimumOSVersion</string>
+      <string>UIFileSharingEnabled</string>
+      <string>UIViewControllerBasedStatusBarAppearance</string>
+      <string>UIBackgroundModes</string>
+      <string>NSLocationWhenInUseUsageDescription</string>
+      <string>LSApplicationQueriesSchemes</string>
+      <string>FacebookAppID</string>
+      <string>FacebookDisplayName</string>
+      <string>CFBundleURLTypes</string>
+      <string>GPGApplicationID</string>
+      <string>SoomlaGameKey</string>
+      <string>SoomlaEnvKey</string>
+    </array>
+    <key>GPGApplicationID</key>
+    <string>46818076463</string>
+    <key>UIFileSharingEnabled</key>
+    <false />
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false />
+  </dict>
+</plist>
