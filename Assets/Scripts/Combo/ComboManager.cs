@@ -19,6 +19,7 @@ public class ComboManager : MonoBehaviour
     public Transform cameraStartPos;
     public Canvas canvas;
     public static float distance;
+    public static bool LifeCalc;
      float prevTime;
 
     bool listenForStart;
@@ -68,6 +69,7 @@ public class ComboManager : MonoBehaviour
 
     void Update()
     {
+        LifeCalc = true;
         //if (Time.frameCount % 60 == 0)
         //{
         //    System.GC.Collect();
@@ -197,7 +199,7 @@ public class ComboManager : MonoBehaviour
 
     public void OnResetBonus()
     {
-       
+        DogRunner.Life = 0;
 		Debug.Log("Showing Video AD");
         // Application.LoadLevel(Application.loadedLevel);
 		UnityADManager.instance.ShowRewardedAd();

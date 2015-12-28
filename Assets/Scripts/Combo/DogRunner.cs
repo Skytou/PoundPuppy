@@ -206,7 +206,11 @@ public class DogRunner : MonoBehaviour
         else if (hit.gameObject.CompareTag("LoseLine"))
         {
             GameOver();
-            Life += 1;
+            if (ComboManager.LifeCalc)
+            {
+                Life += 1;
+                ComboManager.LifeCalc = false;
+            }
             Debug.Log(Life);
             
           
