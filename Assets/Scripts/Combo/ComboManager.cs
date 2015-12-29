@@ -24,6 +24,9 @@ public class ComboManager : MonoBehaviour
 
     bool listenForStart;
     public bool gameRunning;
+    public bool Achive1;
+    public bool Achive2;
+    public bool Achive3;
     bool pause;
     bool hasResumed;
     Touch touch;
@@ -51,7 +54,7 @@ public class ComboManager : MonoBehaviour
     void Start()
     {
         listenForStart = true;
-        
+        GooglePlayServiceManager.instance.UnlockAchievement("WATCHED A VIDEO");
         //TouchManager.PatternRecognized += HandleSwipeDetection;
         EventMgr.GameRestart += OnReset;
         EventMgr.GamePause += OnGamePause;
@@ -70,6 +73,22 @@ public class ComboManager : MonoBehaviour
 
     void Update()
     {
+        Achive();
+        if (Achive1)
+        {
+            GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 5 METRE");
+            Achive1 = false;
+        }
+        if(Achive2)
+        {
+            GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 10 METRE");
+            Achive2 = false;
+        }
+        if(Achive3)
+        {
+            GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 20 METRE");
+            Achive3 = false;
+        }
         LifeCalc = true;
         //if (Time.frameCount % 60 == 0)
         //{
@@ -82,6 +101,7 @@ public class ComboManager : MonoBehaviour
             {
 				instructText.text = ((int) GlobalVariables.distanceCovered).ToString();
 				prevTime = GlobalVariables.distanceCovered;
+                
             }
         }
 #if UNITY_EDITOR
@@ -170,9 +190,9 @@ public class ComboManager : MonoBehaviour
 
 	public void ResetValueAfterContinueAD()
 	{
-		if (DogRunner.Life == 5)
+		if (DogRunner.Life == 5 || GlobalVariables.distanceCovered<150f)
 		{
-
+            GooglePlayServiceManager.instance.UnlockAchievement("WATCHED A VIDEO");
 			DogRunner.instRef.GameOver();
 			gameOverPanel.SetActive(false);
 			gameRunning = false;
@@ -193,7 +213,7 @@ public class ComboManager : MonoBehaviour
 			initialPlat3.SetActive(true);
 
 			OnGameResume();
-			Debug.Log("SteveKratos");
+			
 
 		}
 	}
@@ -246,5 +266,19 @@ public class ComboManager : MonoBehaviour
         uiRaycaster.Raycast(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
-
+    public void Achive()
+    {
+        if (GlobalVariables.distanceCovered == 5)
+        {
+            Achive1 = true;
+        }
+        if (GlobalVariables.distanceCovered == 10)
+        {
+            Achive2 = true;
+        }
+        if (GlobalVariables.distanceCovered == 20)
+        {
+            Achive3 = true;
+        }
+    }
 }

@@ -100,6 +100,7 @@ public class DogRunner : MonoBehaviour
 			if(Life==5 || GlobalVariables.distanceCovered>150f)
             {
                 BtnVideo.SetActive(true);
+                
             }
         }
 
