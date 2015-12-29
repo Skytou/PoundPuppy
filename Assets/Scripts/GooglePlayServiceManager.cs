@@ -41,7 +41,7 @@ public class GooglePlayServiceManager : MonoBehaviour
 	public void PostScoreToLeaderBoard()
 	{
 		Debug.Log("Posting score");
-		PlayGameServices.submitScore("CgkIr87MtK4BEAIQAA",GlobalVariables.distanceCovered);
+		PlayGameServices.submitScore("CgkIr87MtK4BEAIQAA",(long)GlobalVariables.distanceCovered);
 	}
 	public void ShowLeaderBoard()
 	{
@@ -64,6 +64,7 @@ public class GooglePlayServiceManager : MonoBehaviour
 		{
 			if(achievementNameID[i].achievementName == achievementName)
 			{
+				Debug.Log("Displaying achievements : "+ achievementNameID[i].achievementID);
 				PlayGameServices.unlockAchievement(achievementNameID[i].achievementID,true);
 			}
 		}

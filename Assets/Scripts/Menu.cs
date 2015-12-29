@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
 	 
     public void LetsPlay()
     {
-		UnityADManager.instance.ShowAd();
+		//UnityADManager.instance.ShowAd();
         PanelMenu.SetActive(false);
     }
 

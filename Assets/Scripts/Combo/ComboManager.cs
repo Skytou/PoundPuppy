@@ -54,7 +54,7 @@ public class ComboManager : MonoBehaviour
     void Start()
     {
         listenForStart = true;
-        GooglePlayServiceManager.instance.UnlockAchievement("WATCHED A VIDEO");
+
         //TouchManager.PatternRecognized += HandleSwipeDetection;
         EventMgr.GameRestart += OnReset;
         EventMgr.GamePause += OnGamePause;
@@ -74,21 +74,7 @@ public class ComboManager : MonoBehaviour
     void Update()
     {
         Achive();
-        if (Achive1)
-        {
-            GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 5 METRE");
-            Achive1 = false;
-        }
-        if(Achive2)
-        {
-            GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 10 METRE");
-            Achive2 = false;
-        }
-        if(Achive3)
-        {
-            GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 20 METRE");
-            Achive3 = false;
-        }
+        
         LifeCalc = true;
         //if (Time.frameCount % 60 == 0)
         //{
@@ -96,7 +82,8 @@ public class ComboManager : MonoBehaviour
         //}
         if (gameRunning)
         {
-			GlobalVariables.distanceCovered += (long)Time.deltaTime;
+			GooglePlayServiceManager.instance.UnlockAchievement("InitialRun");
+			GlobalVariables.distanceCovered += Time.deltaTime;
 			if (GlobalVariables.distanceCovered - prevTime > 1f) // Memory Leak Fix
             {
 				instructText.text = ((int) GlobalVariables.distanceCovered).ToString();
@@ -266,19 +253,28 @@ public class ComboManager : MonoBehaviour
         uiRaycaster.Raycast(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
+
     public void Achive()
     {
         if (GlobalVariables.distanceCovered == 5)
         {
             Achive1 = true;
+			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED5METRE");
+			Achive1 = false;
         }
         if (GlobalVariables.distanceCovered == 10)
         {
             Achive2 = true;
+			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 10 METRE");
+			Achive2 = false;
         }
         if (GlobalVariables.distanceCovered == 20)
         {
             Achive3 = true;
+			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 20 METRE");
+			Achive3 = false;
         }
+
+		 
     }
 }

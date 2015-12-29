@@ -173,6 +173,10 @@ public class HudMgr : MonoBehaviour
 		EventMgr.OnGameResume ();
 	}
 
+	public void PauseButtonClick()
+	{
+		EventMgr.OnGamePause();
+	}
 
 	void HideBottomPanel()
 	{

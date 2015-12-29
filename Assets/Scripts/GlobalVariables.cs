@@ -5,7 +5,7 @@ public class GlobalVariables : MonoBehaviour
 {
 
 	public static int numberOfRetry;
-	public static long distanceCovered;
+	public static float distanceCovered;
 	public static long score;
 
 }

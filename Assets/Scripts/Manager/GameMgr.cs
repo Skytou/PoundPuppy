@@ -97,7 +97,7 @@ public class GameMgr : MonoBehaviour
 	}
 
 
-    void OnApplicationPause(bool pauseStatus)
+    /*void OnApplicationPause(bool pauseStatus)
     {
         if (pauseStatus)
         {
@@ -106,10 +106,10 @@ public class GameMgr : MonoBehaviour
 
         }
     }
-
+*/
 
     
-    void OnApplicationFocus(bool focusStatus)
+   /* void OnApplicationFocus(bool focusStatus)
     {
 #if !UNITY_EDITOR
         if (focusStatus)
@@ -118,7 +118,7 @@ public class GameMgr : MonoBehaviour
             isPaused = true;
         } 
 #endif
-    }
+    }*/
     
 
 	void Init()
