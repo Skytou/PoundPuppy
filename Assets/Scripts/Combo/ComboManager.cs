@@ -179,6 +179,7 @@ public class ComboManager : MonoBehaviour
 	{
 		if (DogRunner.Life == 5 || GlobalVariables.distanceCovered<150f)
 		{
+            DogRunner.instRef.BtnVideo.SetActive(false);
             GooglePlayServiceManager.instance.UnlockAchievement("WATCHEDAVIDEO");
 			DogRunner.instRef.GameOver();
 			gameOverPanel.SetActive(false);
