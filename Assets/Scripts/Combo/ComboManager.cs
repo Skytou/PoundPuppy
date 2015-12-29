@@ -146,7 +146,7 @@ public class ComboManager : MonoBehaviour
         instructText.text ="0";
         ScoreSystem.score = 0;
         ScoreSystem.comboCount = 0;
-        ScoreDisp.text = "Score: " + ScoreSystem.score + " Pts.";
+        ScoreDisp.text = "Score: " + ScoreSystem.score + " Points.";
         ComboDisp.text = "";
 
 
