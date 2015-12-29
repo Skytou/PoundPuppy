@@ -163,6 +163,7 @@ public class DogRunner : MonoBehaviour
         {
             jump = true;
             dogAnim.SetTrigger("Jump");
+			SoundManager.instance.PlaySfx(SFXVAL.jump);
         }
     }
 
@@ -202,6 +203,7 @@ public class DogRunner : MonoBehaviour
         if (hit.gameObject.CompareTag("target") && !isCoroutineON)
         {
             dogAnim.SetTrigger("Fly");
+			SoundManager.instance.PlaySfx(SFXVAL.doubleJump);
             StartCoroutine(JumpForce(springForce));
         }
         else if (hit.gameObject.CompareTag("LoseLine"))

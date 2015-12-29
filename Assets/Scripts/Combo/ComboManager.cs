@@ -179,7 +179,7 @@ public class ComboManager : MonoBehaviour
 	{
 		if (DogRunner.Life == 5 || GlobalVariables.distanceCovered<150f)
 		{
-            GooglePlayServiceManager.instance.UnlockAchievement("WATCHED A VIDEO");
+            GooglePlayServiceManager.instance.UnlockAchievement("WATCHEDAVIDEO");
 			DogRunner.instRef.GameOver();
 			gameOverPanel.SetActive(false);
 			gameRunning = false;
@@ -265,13 +265,13 @@ public class ComboManager : MonoBehaviour
         if (GlobalVariables.distanceCovered == 10)
         {
             Achive2 = true;
-			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 10 METRE");
+			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED10METRE");
 			Achive2 = false;
         }
         if (GlobalVariables.distanceCovered == 20)
         {
             Achive3 = true;
-			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED 20 METRE");
+			GooglePlayServiceManager.instance.UnlockAchievement("CROSSED20METRE");
 			Achive3 = false;
         }
 

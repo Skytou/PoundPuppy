@@ -24,6 +24,7 @@ public class NativeShare : MonoBehaviour
 
     public void ShareScreenshotWithText(string text)
     {
+		 
         string screenShotPath = Application.persistentDataPath + "/" + ScreenshotName;
         Application.CaptureScreenshot(ScreenshotName);
 

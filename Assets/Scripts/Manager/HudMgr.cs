@@ -170,11 +170,13 @@ public class HudMgr : MonoBehaviour
 
 	public void OnClosePauseMenu()
 	{
+		
 		EventMgr.OnGameResume ();
 	}
 
 	public void PauseButtonClick()
 	{
+		SoundManager.instance.PlaySfx(SFXVAL.buttonClick);
 		EventMgr.OnGamePause();
 	}
 

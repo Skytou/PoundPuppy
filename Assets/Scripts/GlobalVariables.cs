@@ -8,4 +8,6 @@ public class GlobalVariables : MonoBehaviour
 	public static float distanceCovered;
 	public static long score;
 
+	public static bool isMuted;
+
 }
