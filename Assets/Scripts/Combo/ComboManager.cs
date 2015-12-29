@@ -147,7 +147,7 @@ public class ComboManager : MonoBehaviour
         ScoreSystem.score = 0;
         ScoreSystem.comboCount = 0;
         ScoreDisp.text = "Score: " + ScoreSystem.score + " Pts.";
-        ComboDisp.text = "" + ScoreSystem.comboCount + "X";
+        ComboDisp.text = "";
 
 
         SpawnTrigger.twoBeforePrevPlat = 1;
