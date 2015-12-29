@@ -137,7 +137,7 @@ public class ComboManager : MonoBehaviour
     {
         gameRunning = false;
         gameOverPanel.SetActive(true);
-		gameOverText.text = "Distance Covered: " + (int)GlobalVariables.distanceCovered +" m\n\n"+"Score: " + GlobalVariables.score+" Pts.";
+		gameOverText.text = "Distance Covered: " + (int)GlobalVariables.distanceCovered +" m\n\n"+"Score: " + ScoreSystem.score+" Pts.";
     }
 
     // Game Reset
@@ -154,7 +154,7 @@ public class ComboManager : MonoBehaviour
         instructText.text ="0";
         ScoreSystem.score = 0;
         ScoreSystem.comboCount = 0;
-		ScoreDisp.text = "Score: " + GlobalVariables.score + " Points.";
+		ScoreDisp.text = "Score: " + ScoreSystem.score + " Points.";
         ComboDisp.text = "";
 
 
