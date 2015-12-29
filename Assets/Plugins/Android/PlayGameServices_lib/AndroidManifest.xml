@@ -3,8 +3,9 @@
     <uses-sdk android:minSdkVersion="9"/>
 
     <application>
-		<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="\ YOUR_APP_ID"/>
+		<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="\ 46818076463"/>
 		<meta-data android:name="com.prime31.PlayGameServicesPlugin" android:value="UnityPlayerActivityProxy"/>
+		<meta-data android:name="com.prime31.PlayGameServicesPlugin.DisableDrive" android:value=""/>
     </application>
 
 	<uses-permission android:name="android.permission.INTERNET"/>

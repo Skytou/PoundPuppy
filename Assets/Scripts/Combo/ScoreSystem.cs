@@ -30,7 +30,7 @@ public class ScoreSystem : MonoBehaviour
     // Increase score
     void UpdateScore()
     {
-        score += scoreIncrement * comboCount;
+		GlobalVariables.score += scoreIncrement * comboCount;
         UpdateScoreUI();
     }
 
@@ -59,12 +59,10 @@ public class ScoreSystem : MonoBehaviour
     // update Score Display
     void UpdateScoreUI()
     {
-        scoreDisp.text="Score: "+score+" Pts.";
+		scoreDisp.text="Score: "+GlobalVariables.score+" Pts.";
+		GooglePlayServiceManager.instance.PostScoreToLeaderBoard();
     }
 
-    public int GetScore()
-    {
-        return score;
-    }
+    
 
 }

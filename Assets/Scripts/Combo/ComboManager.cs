@@ -56,6 +56,7 @@ public class ComboManager : MonoBehaviour
         EventMgr.GameRestart += OnReset;
         EventMgr.GamePause += OnGamePause;
         EventMgr.GameResume += OnGameResume;
+		//GooglePlayServiceManager.instance.UnlockAchievement("Initial Run");
     }
 
     public void OnDisable()
@@ -76,11 +77,11 @@ public class ComboManager : MonoBehaviour
         //}
         if (gameRunning)
         {
-            distance += Time.deltaTime;
-            if (distance - prevTime > 1f) // Memory Leak Fix
+			GlobalVariables.distanceCovered += (long)Time.deltaTime;
+			if (GlobalVariables.distanceCovered - prevTime > 1f) // Memory Leak Fix
             {
-                instructText.text = ((int) distance).ToString();
-                prevTime = distance;
+				instructText.text = ((int) GlobalVariables.distanceCovered).ToString();
+				prevTime = GlobalVariables.distanceCovered;
             }
         }
 #if UNITY_EDITOR
@@ -129,7 +130,7 @@ public class ComboManager : MonoBehaviour
     {
         gameRunning = false;
         gameOverPanel.SetActive(true);
-        gameOverText.text = "Distance Covered: " + (int)distance +" m\n\n"+"Score: " + ScoreSystem.instRef.GetScore()+" Pts.";
+		gameOverText.text = "Distance Covered: " + (int)GlobalVariables.distanceCovered +" m\n\n"+"Score: " + GlobalVariables.score+" Pts.";
     }
 
     // Game Reset
@@ -142,11 +143,11 @@ public class ComboManager : MonoBehaviour
         listenForStart = true;
         Pooler.InstRef.HideAll();        
         
-        distance = 0;
+		GlobalVariables.distanceCovered = 0;
         instructText.text ="0";
         ScoreSystem.score = 0;
         ScoreSystem.comboCount = 0;
-        ScoreDisp.text = "Score: " + ScoreSystem.score + " Points.";
+		ScoreDisp.text = "Score: " + GlobalVariables.score + " Points.";
         ComboDisp.text = "";
 
 

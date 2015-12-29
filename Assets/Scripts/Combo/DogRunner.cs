@@ -97,7 +97,7 @@ public class DogRunner : MonoBehaviour
 
             dogVelocity = 1;
             SyncAnim();
-            if(Life==5 || ComboManager.distance>150f)
+			if(Life==5 || GlobalVariables.distanceCovered>150f)
             {
                 BtnVideo.SetActive(true);
             }

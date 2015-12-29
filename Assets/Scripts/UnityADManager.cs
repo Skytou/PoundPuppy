@@ -38,10 +38,10 @@ public class UnityADManager : MonoBehaviour {
 
 	public void ShowRewardedAd()
 	{
-		if (Advertisement.IsReady("rewardedVideoZone"))
+		if (Advertisement.IsReady("rewardedVideo"))
 		{
 			var options = new ShowOptions { resultCallback = HandleShowResult };
-			Advertisement.Show("rewardedVideoZone", options);
+			Advertisement.Show("rewardedVideo", options);
 		}
 	}
 
