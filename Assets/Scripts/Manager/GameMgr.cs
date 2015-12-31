@@ -52,8 +52,7 @@ public class GameMgr : MonoBehaviour
 				Destroy(this.gameObject);
 		}
 
-		Analytics.
-
+		
 	}
 
 

@@ -148,7 +148,7 @@ public class ComboManager : MonoBehaviour
     void OnReset()
     {
        
-       // DogRunner.instRef.GameOver();
+        //DogRunner.instRef.GameOver();
         gameOverPanel.SetActive(false);
         gameRunning = false;
         listenForStart = true;
