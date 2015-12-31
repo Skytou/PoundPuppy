@@ -59,12 +59,13 @@ public class SoundManager : MonoBehaviour
 
 	public void MusicToggle()
 	{
+		 
 		audioSrcBg.mute = GlobalVariables.isMuted;
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		MusicToggle();
 	}
 }

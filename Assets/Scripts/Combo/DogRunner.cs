@@ -22,7 +22,7 @@ public class DogRunner : MonoBehaviour
     Vector3 startPos;
     float dogVelocity;
     bool jump;
-    bool gameOver;
+    public bool gameOver;
     bool isCoroutineON;
     float time;
 
@@ -144,6 +144,7 @@ public class DogRunner : MonoBehaviour
         dogVelocity = 0;
         updateAnim = true;
         SyncAnim();
+		dogAnim.SetBool("GameOver",gameOver);
 
     }
 

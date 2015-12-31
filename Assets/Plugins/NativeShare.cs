@@ -13,26 +13,35 @@ public class NativeShare : MonoBehaviour
 	public NativeShare instance = null;
 
 	public string ScreenshotName = "screenshot.png";
-
+	public GameObject screenShareGameObject;
 
 
 
 	void Awake()
 	{
 		instance = this;
+		screenShareGameObject.SetActive(false);
 	}
 
     public void ShareScreenshotWithText(string text)
     {
-		 
+		screenShareGameObject.SetActive(true);
         string screenShotPath = Application.persistentDataPath + "/" + ScreenshotName;
+		 
         Application.CaptureScreenshot(ScreenshotName);
 
         Share(text,screenShotPath,"");
+		StartCoroutine(DisableScreenShare());
+		//screenShareGameObject.SetActive(false);
     }
 
 
-	 
+	IEnumerator DisableScreenShare()
+	{
+		yield return new WaitForSeconds(3);
+		screenShareGameObject.SetActive(false);
+
+	}
 
 	public void Share(string shareText, string imagePath, string url, string subject = "")
 	{

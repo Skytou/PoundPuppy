@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Analytics;
 using System.Collections;
 
 public enum GameStates
@@ -50,6 +51,9 @@ public class GameMgr : MonoBehaviour
 			if(this != instance)
 				Destroy(this.gameObject);
 		}
+
+		Analytics.
+
 	}
 
 

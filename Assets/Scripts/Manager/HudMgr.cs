@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class HudMgr : MonoBehaviour 
@@ -13,12 +14,17 @@ public class HudMgr : MonoBehaviour
 	public GameObject Pause_Menu;
     public GameObject Stats_Menu;
 
+
+ 
+
 	void Start () 
 	{
 		BottomPanel.SetActive (false);
 		Shop_Menu.SetActive (false);
 		Pause_Menu.SetActive (false);
         Stats_Menu.SetActive(false);
+
+		 
 	}
 
 
@@ -135,6 +141,7 @@ public class HudMgr : MonoBehaviour
 		Btn_01_Pause.SetActive (true);
 		Btn_01_Resume.SetActive (false);
 		HideBottomPanel ();
+
 	}
 	#endregion EventHandling
 
@@ -191,6 +198,7 @@ public class HudMgr : MonoBehaviour
 
 	public void OnResume()
 	{
+		SoundManager.instance.PlaySfx(SFXVAL.buttonClick);
 		EventMgr.OnGameResume ();
 	}
 
@@ -218,6 +226,10 @@ public class HudMgr : MonoBehaviour
     }
 
 	#endregion BottomPanel
+
+
+	 
+
 
 }
 

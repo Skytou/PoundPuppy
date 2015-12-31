@@ -38,7 +38,7 @@ public class ComboManager : MonoBehaviour
     public Text ScoreDisp;
     public Text ComboDisp;
     
-
+	public Text screenShareDistanceText;
 
     // Event Dispatcher
     public delegate void ComboEventBroadcast();
@@ -84,6 +84,8 @@ public class ComboManager : MonoBehaviour
         {
 			GooglePlayServiceManager.instance.UnlockAchievement("InitialRun");
 			GlobalVariables.distanceCovered += Time.deltaTime;
+			DogRunner.instRef.gameOver = false;
+			DogRunner.instRef.dogAnim.SetBool("GameOver",DogRunner.instRef.gameOver);
 			if (GlobalVariables.distanceCovered - prevTime > 1f) // Memory Leak Fix
             {
 				instructText.text = ((int) GlobalVariables.distanceCovered).ToString();
@@ -136,20 +138,22 @@ public class ComboManager : MonoBehaviour
     public void GameOver()
     {
         gameRunning = false;
+		SoundManager.instance.PlaySfx(SFXVAL.gameOver);
         gameOverPanel.SetActive(true);
 		gameOverText.text = "Distance Covered: " + (int)GlobalVariables.distanceCovered +" m\n\n"+"Score: " + ScoreSystem.score+" Pts.";
+		screenShareDistanceText.text =  "Distance Covered: " + (int)GlobalVariables.distanceCovered +"m";
     }
 
     // Game Reset
     void OnReset()
     {
-        DogRunner.updateAnim = true;
-        DogRunner.instRef.GameOver();
+       
+       // DogRunner.instRef.GameOver();
         gameOverPanel.SetActive(false);
         gameRunning = false;
         listenForStart = true;
         Pooler.InstRef.HideAll();        
-        
+		DogRunner.instRef.gameOver = false;
 		GlobalVariables.distanceCovered = 0;
         instructText.text ="0";
         ScoreSystem.score = 0;
@@ -232,6 +236,7 @@ public class ComboManager : MonoBehaviour
         if (!listenForStart)
         {
             gameRunning = true;
+
         }
     }
 #endregion EventHandlers
