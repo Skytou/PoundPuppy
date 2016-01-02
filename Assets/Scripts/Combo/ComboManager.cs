@@ -53,6 +53,7 @@ public class ComboManager : MonoBehaviour
 
     void Start()
     {
+        
        // listenForStart = true;
 
         //TouchManager.PatternRecognized += HandleSwipeDetection;
@@ -148,7 +149,7 @@ public class ComboManager : MonoBehaviour
     public void OnReset()
     {
         listenForStart = true;
-        //DogRunner.instRef.GameOver();
+        DogRunner.instRef.GameOver();
         gameOverPanel.SetActive(false);
         gameRunning = false;
         listenForStart = true;

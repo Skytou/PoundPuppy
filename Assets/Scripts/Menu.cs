@@ -43,6 +43,7 @@ public class Menu : MonoBehaviour
 		SoundManager.instance.PlaySfx(SFXVAL.buttonClick);
         PanelMenu.SetActive(false);
         ComboManager.instRef.listenForStart = true;
+        ComboManager.instRef.OnReset();
 
     }
 
