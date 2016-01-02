@@ -86,12 +86,12 @@ public class ComboManager : MonoBehaviour
 			GlobalVariables.distanceCovered += Time.deltaTime;
 			DogRunner.instRef.gameOver = false;
 			DogRunner.instRef.dogAnim.SetBool("GameOver",DogRunner.instRef.gameOver);
-			if (GlobalVariables.distanceCovered - prevTime > 1f) // Memory Leak Fix
-            {
+			//if (GlobalVariables.distanceCovered - prevTime > 1f) // Memory Leak Fix
+           // {
 				instructText.text = ((int) GlobalVariables.distanceCovered).ToString();
 				prevTime = GlobalVariables.distanceCovered;
                 
-            }
+          //  }
         }
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1") && !EventSystem.current.IsPointerOverGameObject())
@@ -145,7 +145,7 @@ public class ComboManager : MonoBehaviour
     }
 
     // Game Reset
-    void OnReset()
+    public void OnReset()
     {
        
         //DogRunner.instRef.GameOver();
@@ -155,7 +155,7 @@ public class ComboManager : MonoBehaviour
         Pooler.InstRef.HideAll();        
 		DogRunner.instRef.gameOver = false;
 		GlobalVariables.distanceCovered = 0;
-        instructText.text ="0";
+        instructText.text ="";
         ScoreSystem.score = 0;
         ScoreSystem.comboCount = 0;
 		ScoreDisp.text = "Score: " + ScoreSystem.score + " Points.";
@@ -183,6 +183,7 @@ public class ComboManager : MonoBehaviour
 	{
 		if (DogRunner.Life == 5 || GlobalVariables.distanceCovered<150f)
 		{
+            DogRunner.Life = 0;
             DogRunner.instRef.BtnVideo.SetActive(false);
             GooglePlayServiceManager.instance.UnlockAchievement("WATCHEDAVIDEO");
 			DogRunner.instRef.GameOver();
