@@ -52,11 +52,11 @@ public class SpawnTrigger : MonoBehaviour
                 randNo = randNo > 5? 1 : randNo;
 
                //  Added to make platform type 2 to appear after 30 secs.
-                if (GlobalVariables.distanceCovered < 15)
+               /* if (GlobalVariables.distanceCovered < 15)
                 {
                     randNo = randNo == 2 ? 1 : randNo;
                 }
-                Debug.Log(randNo);
+                Debug.Log(randNo);*/
                 //Debug.LogError(Time.time - timer);
                 timer = Time.time;
 

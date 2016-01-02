@@ -205,6 +205,7 @@ public class ComboManager : MonoBehaviour
 			initialPlat2.SetActive(true);
 			initialPlat3.SetActive(true);
 
+			UnityADManager.instance.ShowRewardedAd();
 			OnGameResume();
 			
 
@@ -216,7 +217,7 @@ public class ComboManager : MonoBehaviour
         DogRunner.Life = 0;
 		Debug.Log("Showing Video AD");
         // Application.LoadLevel(Application.loadedLevel);
-		UnityADManager.instance.ShowRewardedAd();
+
     }
 
     // game pause
