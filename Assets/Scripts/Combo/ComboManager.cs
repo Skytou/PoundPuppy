@@ -22,7 +22,7 @@ public class ComboManager : MonoBehaviour
     public static bool LifeCalc;
      float prevTime;
 
-    bool listenForStart;
+    public bool listenForStart;
     public bool gameRunning;
     public bool Achive1;
     public bool Achive2;
@@ -53,7 +53,7 @@ public class ComboManager : MonoBehaviour
 
     void Start()
     {
-        listenForStart = true;
+       // listenForStart = true;
 
         //TouchManager.PatternRecognized += HandleSwipeDetection;
         EventMgr.GameRestart += OnReset;
@@ -147,7 +147,7 @@ public class ComboManager : MonoBehaviour
     // Game Reset
     public void OnReset()
     {
-       
+        listenForStart = true;
         //DogRunner.instRef.GameOver();
         gameOverPanel.SetActive(false);
         gameRunning = false;
@@ -183,6 +183,7 @@ public class ComboManager : MonoBehaviour
 	{
 		if (DogRunner.Life == 5 || GlobalVariables.distanceCovered<150f)
 		{
+            listenForStart = true;
             DogRunner.Life = 0;
             DogRunner.instRef.BtnVideo.SetActive(false);
             GooglePlayServiceManager.instance.UnlockAchievement("WATCHEDAVIDEO");

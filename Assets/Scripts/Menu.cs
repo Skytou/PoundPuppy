@@ -5,7 +5,7 @@ using System.Collections;
 
 public class Menu : MonoBehaviour
 {
-
+    public static ComboManager instRef;
     public GameObject PanelMenu;
 
 	public Image sound;
@@ -42,6 +42,7 @@ public class Menu : MonoBehaviour
 		//UnityADManager.instance.ShowAd();
 		SoundManager.instance.PlaySfx(SFXVAL.buttonClick);
         PanelMenu.SetActive(false);
+        ComboManager.instRef.listenForStart = true;
 
     }
 
