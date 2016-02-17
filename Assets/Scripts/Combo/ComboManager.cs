@@ -20,10 +20,10 @@ public class ComboManager : MonoBehaviour
     public Canvas canvas;
     public static float distance;
     public static bool LifeCalc;
-    float prevTime;
+     float prevTime;
 
     public bool listenForStart;
-    public static bool gameRunning;
+    public bool gameRunning;
     public bool Achive1;
     public bool Achive2;
     public bool Achive3;
@@ -85,8 +85,8 @@ public class ComboManager : MonoBehaviour
         {
 			GooglePlayServiceManager.instance.UnlockAchievement("InitialRun");
 			GlobalVariables.distanceCovered += Time.deltaTime;
-			DogRunner.gameOver = false;
-			DogRunner.instRef.dogAnim.SetBool("GameOver",DogRunner.gameOver);
+			DogRunner.instRef.gameOver = false;
+			DogRunner.instRef.dogAnim.SetBool("GameOver",DogRunner.instRef.gameOver);
 			//if (GlobalVariables.distanceCovered - prevTime > 1f) // Memory Leak Fix
            // {
 				instructText.text = ((int) GlobalVariables.distanceCovered).ToString();
@@ -143,9 +143,6 @@ public class ComboManager : MonoBehaviour
         gameOverPanel.SetActive(true);
 		gameOverText.text = "Distance Covered: " + (int)GlobalVariables.distanceCovered +" m\n\n"+"Score: " + ScoreSystem.score+" Pts.";
 		screenShareDistanceText.text =  "Distance Covered: " + (int)GlobalVariables.distanceCovered +"m";
-
-        Prime31_PlatformGenerator.prime31_PlatformGen.cleanOldPlatforms();
-
     }
 
     // Game Reset
@@ -156,8 +153,8 @@ public class ComboManager : MonoBehaviour
         gameOverPanel.SetActive(false);
         gameRunning = false;
         listenForStart = true;
-      //  Pooler.InstRef.HideAll();        
-		DogRunner.gameOver = false;
+        Pooler.InstRef.HideAll();        
+		DogRunner.instRef.gameOver = false;
 		GlobalVariables.distanceCovered = 0;
         instructText.text ="";
         ScoreSystem.score = 0;
@@ -165,20 +162,16 @@ public class ComboManager : MonoBehaviour
 		ScoreDisp.text = "Score: " + ScoreSystem.score + " Points.";
         ComboDisp.text = "";
 
-        Prime31_PlatformGenerator.prime31_PlatformGen.createPlatformsAtStart();//Generate the platforms on start
-       
 
-
-
-        //SpawnTrigger.twoBeforePrevPlat = 1;
-        //SpawnTrigger.beforePrevPlat = 1;
-        //SpawnTrigger.prevPlat = 1;
+        SpawnTrigger.twoBeforePrevPlat = 1;
+        SpawnTrigger.beforePrevPlat = 1;
+        SpawnTrigger.prevPlat = 1;
         DogRunner.instRef.ResetPos();
         Camera.main.transform.parent.transform.position = cameraStartPos.position;
 
-        //initialPlat1.SetActive(true);
-        //initialPlat2.SetActive(true);
-       // initialPlat3.SetActive(true);
+        initialPlat1.SetActive(true);
+        initialPlat2.SetActive(true);
+        initialPlat3.SetActive(true);
 
         OnGameResume();
         
@@ -199,7 +192,7 @@ public class ComboManager : MonoBehaviour
 			gameOverPanel.SetActive(false);
 			gameRunning = false;
 			listenForStart = true;
-			//Pooler.InstRef.HideAll();
+			Pooler.InstRef.HideAll();
 
 
 

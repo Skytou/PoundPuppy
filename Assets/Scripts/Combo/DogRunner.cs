@@ -22,7 +22,7 @@ public class DogRunner : MonoBehaviour
     Vector3 startPos;
     float dogVelocity;
     bool jump;
-    public static bool gameOver;
+    public bool gameOver;
     bool isCoroutineON;
     float time;
 

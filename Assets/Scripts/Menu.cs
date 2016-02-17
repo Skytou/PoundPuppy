@@ -87,6 +87,6 @@ public class Menu : MonoBehaviour
 
 	void Update()
 	{
-		//Debug.Log(GlobalVariables.isMuted);
+		Debug.Log(GlobalVariables.isMuted);
 	}
 }
