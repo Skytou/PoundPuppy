@@ -75,7 +75,8 @@ public class Pooler : MonoBehaviour
         {
             instance=Instantiate(data.prefab, Vector3.zero, data.prefab.transform.rotation) as GameObject;
             instance.transform.parent = transform;
-            data.pool.Add(instance);
+            Debug.Log("Parent of " + instance.gameObject.name + " = " + instance.transform.parent.gameObject.name);
+            data.pool.Add(instance);//adding to the array
             instance.SetActive(false);
         }
     }
